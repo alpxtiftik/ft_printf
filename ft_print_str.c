@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahtiftik <ahtiftik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 19:26:19 by ahtiftik          #+#    #+#             */
-/*   Updated: 2026/02/10 19:26:51 by ahtiftik         ###   ########.fr       */
+/*   Created: 2026/02/10 19:24:58 by ahtiftik          #+#    #+#             */
+/*   Updated: 2026/02/10 19:30:27 by ahtiftik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_print_ptr(unsigned long long ptr)
+#include "ft_printf.h"
+
+int	ft_print_str(char *str)
 {
-	return (1);
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }
