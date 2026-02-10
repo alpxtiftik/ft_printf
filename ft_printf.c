@@ -35,8 +35,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-int main()
-{
-	char c = 'c';
-	ft_printf("selam %c", c);
-}

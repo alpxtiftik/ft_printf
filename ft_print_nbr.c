@@ -12,34 +12,31 @@
 
 #include "ft_printf.h"
 
+static size_t	intlen(long n)
+{
+	size_t	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		n *= -1;
+		len++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
 int	ft_print_nbr(int n)
 {
 	int	count;
 
-	count = 0;
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', 1);
-		ft_putchar_fd('2', 1);
-		ft_putnbr_fd(147483648, 1);
-		return (11);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', 1);
-		count++;
-		n = n * (-1);
-		ft_putnbr_fd(n, 1);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, 1);
-		ft_putnbr_fd(n % 10, 1);
-	}
-	else
-	{
-		ft_putchar_fd(n + '0', 1);
-		count++;
-	}
+	count = intlen(n);
+	ft_putnbr_fd(n, 1);
 	return (count);
 }

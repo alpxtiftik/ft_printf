@@ -10,7 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 int	ft_print_hex(unsigned int num, const char format)
 {
-	return (1);
+	int		count;
+	char	*basestr;
+
+	count = 0;
+	if (format == 'x')
+		basestr = "0123456789abcdef";
+	else
+		basestr = "0123456789ABCDEF";
+	if (num >= 16)
+		count += ft_print_hex(num / 16, format);
+	ft_putchar_fd(basestr[num % 16], 1);
+	count++;
+	return (count);
 }

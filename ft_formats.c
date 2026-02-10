@@ -17,7 +17,6 @@ int	ft_formats(va_list args, const char format)
 	int	length;
 
 	length = 0;
-
 	if (format == 'c')
 		length += ft_print_char(va_arg(args, int));
 	else if (format == 's')
@@ -29,7 +28,7 @@ int	ft_formats(va_list args, const char format)
 	else if (format == 'x' || format == 'X')
 		length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == 'p')
-		length += ft_print_ptr(va_arg(args, unsigned long long));
+		length += ft_print_ptr((unsigned long long)va_arg(args, void *));
 	else if (format == '%')
 		length += ft_print_char('%');
 	return (length);

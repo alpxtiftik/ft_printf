@@ -10,7 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
+static int	ft_ptr_len(unsigned long long num)
+{
+	
+}
 int	ft_print_ptr(unsigned long long ptr)
 {
-	return (1);
+	
 }
