@@ -11,7 +11,7 @@ SRCS        = ft_printf.c \
               ft_print_nbr.c \
               ft_print_hex.c \
               ft_print_ptr.c \
-              ft_print_unsigned.c
+              ft_print_uns.c
 
 OBJS        = $(SRCS:.c=.o)
 

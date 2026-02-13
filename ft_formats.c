@@ -24,7 +24,7 @@ int	ft_formats(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		length += ft_print_nbr(va_arg(args, int));
 	else if (format == 'u')
-		length += ft_print_unsigned(va_arg(args, unsigned int));
+		length += ft_print_uns(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		length += ft_print_hex(va_arg(args, unsigned int), format);
 	else if (format == 'p')
@@ -33,5 +33,3 @@ int	ft_formats(va_list args, const char format)
 		length += ft_print_char('%');
 	return (length);
 }
-
-//printf("selam %d", 36);

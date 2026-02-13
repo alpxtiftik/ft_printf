@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahtiftik <ahtiftik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 19:26:19 by ahtiftik          #+#    #+#             */
-/*   Updated: 2026/02/10 19:26:51 by ahtiftik         ###   ########.fr       */
+/*   Created: 2026/02/10 19:25:42 by ahtiftik          #+#    #+#             */
+/*   Updated: 2026/02/10 19:25:51 by ahtiftik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	putptr_hex(unsigned long long num)
-{
-	int		count;
-	char	*basestr;
-
-	count = 0;
-	basestr = "0123456789abcdef";
-	if (num >= 16)
-		count += putptr_hex(num / 16);
-	ft_putchar_fd(basestr[num % 16], 1);
-	count++;
-	return (count);
-}
-
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_print_uns(unsigned int n)
 {
 	int	count;
 
-	if (!ptr)
-		return (write(1, "(nil)", 5));
-	ft_putstr_fd("0x", 1);
-	count = 2;
-	count += putptr_hex(ptr);
+	count = 0;
+	if (n > 9)
+	{
+		count += ft_print_uns(n / 10);
+		count += ft_print_uns(n % 10);
+	}
+	else
+	{
+		ft_putchar_fd(n + '0', 1);
+		count = 1;
+	}
 	return (count);
 }
