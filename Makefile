@@ -7,7 +7,7 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 SRCS        = ft_printf.c \
               ft_formats.c \
               ft_print_char.c \
-			  ft_print_str.c \
+              ft_print_str.c \
               ft_print_nbr.c \
               ft_print_hex.c \
               ft_print_ptr.c \
@@ -17,15 +17,15 @@ OBJS        = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-libft:
+$(LIBFT):
 	@make -C $(LIBFT_DIR)
 
-$(NAME): libft $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
 	@cp $(LIBFT) $(NAME)
 	@ar rcs $(NAME) $(OBJS)
 	@echo "libftprintf.a oluşturuldu!"
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -38,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re
