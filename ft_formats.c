@@ -6,7 +6,7 @@
 /*   By: ahtiftik <ahtiftik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:24:00 by ahtiftik          #+#    #+#             */
-/*   Updated: 2026/02/26 14:59:21 by ahtiftik         ###   ########.fr       */
+/*   Updated: 2026/03/01 09:38:18 by ahtiftik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@ int	ft_formats(va_list args, const char format)
 		length += ft_print_ptr((unsigned long long)va_arg(args, void *));
 	else if (format == '%')
 		length += ft_print_char('%');
+    else
+    {
+        length += ft_print_char('%');
+        length += ft_print_char(format);
+        return (length);
+    }
 	return (length);
 }
